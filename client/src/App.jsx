@@ -1,8 +1,6 @@
-import React from 'react'
-
 const App = () => {
   return (
-    <div>aayush chaulagian</div>
+    <div>aayush chaulagian aaa</div>
   )
 }
 
