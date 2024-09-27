@@ -21,7 +21,7 @@ jobs:
         run: |
           cd client
           npm install
-          npx next build
+          npm run build
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
