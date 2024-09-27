@@ -1,6 +1,8 @@
+import MyRoute from "./Routes/MyRoute"
+
 const App = () => {
   return (
-    <div>aayush chaulagian aaa</div>
+    <MyRoute/>
   )
 }
 
