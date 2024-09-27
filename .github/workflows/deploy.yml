@@ -1,41 +1,32 @@
-name: Deploy via FTP
-
 on:
   push:
     branches:
-      - main  # Change this if you use a different default branch
+      - master
+name: 🚀 Deploy website on push
 
 jobs:
-  ftp-deploy:
-    name: FTP Deploy
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Use Node.js 20.12.0
+        uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Use the Node.js version required by your project
+          node-version: "20.12.0"
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Project
-        run: npm run build
-
-      - name: Export Static Files
-        run: npm run export
-
-      - name: Deploy to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: 🔨 Build Project
+        run: |
+          cd client
+          npm install
+          npx next build
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ${{ secrets.FTP_PROTOCOL }}
-          local-dir: ./out
-          server-dir: /public_html  # Adjust this to your server's web root directory
-          method: ftp-deploy
-          log-level: verbose
+          server: ${{ secrets.REACT_SERVER }}
+          username: ${{ secrets.REACT_USER }}
+          password: ${{ secrets.REACT_PWD }}
+          protocol: ${{ secrets.REACT_PROTOCOL }}
+          server-dir: /
