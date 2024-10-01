@@ -5,8 +5,9 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+  RewriteRule . /index.html [L]
 </IfModule>
 
-AddType text/javascript .js
+# Add correct MIME type for JavaScript
+AddType application/javascript .js
 
