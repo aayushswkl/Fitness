@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Root Variables */
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004080;
+            --light-color: #ffffff;
+            --dark-color: #333333;
+            --accent-color: #ff6600;
+            --font-family: 'Arial, sans-serif';
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        /* Carousel Wrapper */
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        /* Carousel Slide */
+        .carousel-slide {
+            min-width: calc(100% / 6);
+            flex-shrink: 0;
+            padding: 10px;
+        }
+        /* Service Card */
+        .service-card {
+            background-color: var(--light-color);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .service-icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .service-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .service-description {
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .service-button {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .service-button:hover {
+            background-color: #e65c00;
+        }
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            z-index: 10;
+        }
+        .carousel-nav-left {
+            left: 10px;
+        }
+        .carousel-nav-right {
+            right: 10px;
+        }
+        /* Navigation Dots */
+        .carousel-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-dot.active {
+            background-color: var(--primary-color);
+        }
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .carousel-slide {
+                min-width: calc(100% / 4);
+            }
+        }
+        @media (max-width: 768px) {
+            .carousel-slide {
+                min-width: calc(100% / 2);
+            }
+        }
+        @media (max-width: 480px) {
+            .carousel-slide {
+                min-width: 100%;
+            }
+            .carousel-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <!-- Carousel Wrapper -->
+        <div class="carousel-wrapper">
+            <!-- Carousel Slides -->
+            <div class="carousel-slide">
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3 class="service-title">Custom Software</h3>
+                    <p class="service-description">We create tailor-made software solutions to meet your business needs.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">Responsive and modern websites to enhance your online presence.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Mobile App Development</h3>
+                    <p class="service-description">Innovative mobile apps for iOS and Android platforms.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <!-- Service Card 4 -->
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">Engaging designs that provide excellent user experiences.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <!-- Service Card 5 -->
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3 class="service-title">Cloud Storage</h3>
+                    <p class="service-description">Secure and scalable cloud storage solutions.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <!-- Service Card 6 -->
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Data Analytics</h3>
+                    <p class="service-description">Transform data into actionable insights.</p>
+                    <a href="#" class="service-button">Read More</a>
+                </div>
+            </div>
+            <!-- Duplicate Slides for Looping Effect -->
+            <!-- You can duplicate the slides to create an infinite looping effect -->
+            <!-- ... -->
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="carousel-nav carousel-nav-left">&#10094;</div>
+        <div class="carousel-nav carousel-nav-right">&#10095;</div>
+        <!-- Navigation Dots -->
+        <div class="carousel-dots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // JavaScript Code for Carousel Functionality
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.carousel-nav-left');
+        const nextBtn = document.querySelector('.carousel-nav-right');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        let slideWidth = carouselSlides[0].clientWidth;
+        let totalSlides = carouselSlides.length;
+        let slidesPerView = 6; // Default slides per view
+
+        // Adjust slidesPerView based on screen width
+        function adjustSlidesPerView() {
+            if (window.innerWidth <= 480) {
+                slidesPerView = 1;
+            } else if (window.innerWidth <= 768) {
+                slidesPerView = 2;
+            } else if (window.innerWidth <= 1200) {
+                slidesPerView = 4;
+            } else {
+                slidesPerView = 6;
+            }
+            slideWidth = carouselSlides[0].clientWidth;
+            updateCarousel();
+        }
+
+        // Update Carousel Position
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            updateDots();
+        }
+
+        // Update Dots
+        function updateDots() {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[Math.floor(currentIndex / slidesPerView) % dots.length].classList.add('active');
+        }
+
+        // Next Slide
+        function nextSlide() {
+            if (currentIndex >= totalSlides - slidesPerView) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+        }
+
+        // Previous Slide
+        function prevSlide() {
+            if (currentIndex <= 0) {
+                currentIndex = totalSlides - slidesPerView;
+            } else {
+                currentIndex--;
+            }
+            updateCarousel();
+        }
+
+        // Navigation Button Events
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // Dot Navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(dot.getAttribute('data-index')) * slidesPerView;
+                updateCarousel();
+            });
+        });
+
+        // Window Resize Event
+        window.addEventListener('resize', adjustSlidesPerView);
+
+        // Initial Setup
+        adjustSlidesPerView();
+
+        // Optional: Auto-Scroll Functionality
+        // Uncomment the lines below to enable auto-scrolling
+        // let autoScroll = setInterval(nextSlide, 5000);
+        // carouselContainer.addEventListener('mouseover', () => clearInterval(autoScroll));
+        // carouselContainer.addEventListener('mouseout', () => autoScroll = setInterval(nextSlide, 5000));
+    </script>
+
+</body>
+</html>
