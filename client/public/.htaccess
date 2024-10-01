@@ -9,5 +9,5 @@
 </IfModule>
 
 # Add correct MIME type for JavaScript
-AddType application/javascript .js
+AddType application/javascript .js .jsx
 
